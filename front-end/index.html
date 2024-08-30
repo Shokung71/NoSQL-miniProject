@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphone in Market</title>
+    <link rel="icon" href="phone.png" type="image/icon type">
+    <link rel="stylesheet" href="index.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <!-- ปุ่มการแก้ไข และลบ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+        integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA=="
+        crossorigin="anonymous" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div class="topbar">
+        <img src="flagship-smartphones-2023.webp" alt="" class="cover">
+
+        <div class="navbar">
+            <div class="logo">
+                <!-- <img src="phone.png" alt="" height="30px"> -->
+                <a href="index.html">Smartphone in Market</a>
+                <p>Power by MongoDB</p>
+                
+            </div>
+            
+            <div class="menu-over-table">
+                <div class="d-flex">
+                    <input class="form-control me-2" id="searchTextBox" type="search" placeholder="Search"
+                        aria-label="Search">
+                        <!-- เป็นแค่ คลาส แสดงปุ่มกด ที่จะรอฟังก์ชันการกดปุ่มเพื่อทำงาน ในบรรทัดต่อไป ใน JS -->
+                    <button class="btn btn-info" onclick="loadQueryTable();return false;">Search</button>
+                </div>  
+            </div>
+            <!-- Coming Soon Kubb~ -->
+            <!-- <ul class="menu">
+                <p>Mode:</p>
+                <li><button type="button" class="btn btn-success">All Smartphone</button></li>
+                <li><button type="button" class="btn btn-secondary">Random</button></li>
+            </ul> -->
+        </div>
+    </div>
+    
+    <div class="charts">
+        <div class="gstatic">
+            <div class="d-flex bd-highlight mb-3">
+                
+                <div class="col">
+                    <div id="barchartSubmitted"></div>
+                </div>
+        
+                <div class="col">
+                    <div id="piechartTimelyResponse"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="top-menu">
+        <p>The exchange rate as of August 31, 2024 is 1 INR.(India) = <b>0.41 THB.(Thailand)</b><br>Using for convert prices from database</p>
+        <!-- <p>The exchange rate is used for convert prices from Indian currency from the database to Thai currency.</p> -->
+
+        <div class="menu-over-table">
+            <div class="create">
+                <button type="button" class="btn btn-outline-primary" onclick="showStudentCreateBox()">Add Model</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-condensed table-striped table-hover">
+            <thead class="align-middle">
+                <tr>
+                    <th scope="col" class="center-text" >No.</th>
+                    <th scope="col" class="center-text" >Brand</th>
+                    <th scope="col" class="center-text" >Model</th>
+                    <th scope="col" class="center-text" >OS</th>
+                    <th scope="col" class="center-text" >Marketing price (THB)</th>
+                    <th scope="col" class="center-text" >5G Support</th>
+                    <th scope="col" class="center-text" >Processor Brand</th>
+                    <th scope="col" class="center-text" >Processor speed</th>
+                    <th scope="col" class="center-text" >Ram(GB)</th>
+                    <th scope="col" class="center-text" >Rom(GB)</th>
+                    <th scope="col" class="center-text" >Screen size(inches)</th>
+                    <th scope="col" class="center-text" ></th>
+                </tr>
+            </thead>
+            <tbody id="mytable" class="align-middle">
+                <tr>
+                    <th scope="row" colspan="11" class="center-text">Please wait, we are connecting to the database...</th>
+                </tr>
+            </tbody>
+        </table>
+        
+        <div class="menu-under-table">
+            <!-- <div class="d-flex">
+                <input class="form-control me-2" id="searchTextBox" type="search" placeholder="Search"
+                    aria-label="Search">
+                <button class="btn btn-info" onclick="loadQueryTable();return false;">Search</button>
+            </div>    -->
+            
+            <div class="create">
+                <button type="button" class="btn btn-outline-primary" onclick="showStudentCreateBox()">Add Model</button>
+            </div>
+        </div>
+    </div>
+
+    <footer >
+        <div class="footer">
+            <p>Author: 66106030 Bancha Wasanasitthi</p>
+            <p>For educational purposes only in the subject "NoSQL Database Programming"</p>
+
+        </div>
+    </footer>
+
+
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <!-- pop-up แจ้งเตือนต่าง ๆ -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.16/dist/sweetalert2.all.min.js"></script>
+
+</html>
